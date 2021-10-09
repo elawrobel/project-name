@@ -1,13 +1,8 @@
 import React from 'react';
-
-import './assets/table.css';
-
-import PeopleList from './components/PeopleList';
-import MovieList from './components/MovieList';
-import Table from './components/Table';
-
 import { Fragment } from 'react';
 
+import Menu from './components/Menu';
+import ApiPage from './pages/ApiPage';
 
 class App extends React.Component {
 
@@ -15,10 +10,11 @@ class App extends React.Component {
       return (
 
         <Fragment >
-          <MovieList />
-          <PeopleList />
-          <Table />
+          <Menu />
+          <ApiPage />
         </Fragment>
+
+
     );
   }
 }

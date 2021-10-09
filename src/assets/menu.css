@@ -1,0 +1,28 @@
+.menu{
+  background-color: #eee;
+}
+
+.menu--container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.menu--container a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.menu--container a:hover {
+  background-color: #ccc;
+}
+
+.menu--container a.active {
+  background-color: #04AA6D;
+  color: white;
+}

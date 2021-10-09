@@ -5,6 +5,7 @@ function People() {
   const [peoples, setPeoples] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [hasError, setError] = useState(false);
+  const [close, setClose] = useState(true);
 
   useEffect(() => {
     fetch('https://randomuser.me/api?results=5')
@@ -19,22 +20,41 @@ function People() {
     });
   }, []);
 
-  console.log(peoples)
+  console.log(peoples);
 
 
   return (
     <Fragment>
       {isLoading && <p>Loading...</p>}
       {hasError && <p>An error has occurred</p>}
-
-      {peoples.map((person, i ) => (
-        <tr key={i} >
-          <td><img src={person.picture.thumbnail} alt="" /></td>
-          <td>{person.name.first}</td>
-          <td>{person.name.last}</td>
-          <td>{person.location.country}</td>
-        </tr>
-      ))}
+        <div className="people--table">
+          <table width={'100%'}>
+              <thead>
+                  <tr>
+                      <th>image</th>
+                      <th>name</th>
+                      <th>surname</th>
+                      <th>country</th>
+                      <th>delete</th>
+                  </tr>
+              </thead>
+              <tbody 
+                  className={close ? "table-white" : "table-blue"}
+              >
+              {peoples.map((person, i ) => (
+                <tr key={i} >
+                  <td><img src={person.picture.thumbnail} alt="" /></td>
+                  <td>{person.name.first}</td>
+                  <td>{person.name.last}</td>
+                  <td>{person.location.country}</td>
+                  <td>
+                    <button onClick={() => this.removeItem(i) }>delete</button>
+                  </td>
+                </tr>
+              ))}
+              </tbody>
+            </table>
+        </div>
     </Fragment>
   );
 }

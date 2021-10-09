@@ -1,17 +1,19 @@
 import React from 'react';
 import '../assets/menu.css';
 
+import {
+  Link
+} from 'react-router-dom';
+
 
 function Menu(){
 
   return(
     <div className="menu">
       <div class="menu--container">
-        <a href="" class="active">Home</a>
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        <a href="#">Link 4</a>
+        <a href="/" class="active">Home</a>
+        <Link to="/apipage">Api</Link>
+        <Link to="/news">News</Link>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 
+// component funkcyjny
 
 function People() {
   const [peoples, setPeoples] = useState([]);

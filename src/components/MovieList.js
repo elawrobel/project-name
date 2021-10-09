@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 
+// component klasowy 
 
 class Movies extends React.Component {
   state = {

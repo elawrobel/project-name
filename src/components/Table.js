@@ -52,7 +52,7 @@ const Table = () => {
     return (
         <>
             <h1 id='title'>React Table</h1>
-            <table id='employee'>
+            <table className='employee'>
                 <thead>
                     <tr>{renderHeader()}</tr>
                 </thead>

@@ -6,6 +6,7 @@ class Movies extends React.Component {
   state = {
     movies: []
   };
+
   componentDidMount() {
     fetch("https://srapi.herokuapp.com/v1/movies?results=5")
       .then(response => {
@@ -15,15 +16,34 @@ class Movies extends React.Component {
       .then(data => this.setState({ movies: data }))
       .catch(error => console.error(error));
   }
+
+  componentDidUpdate(){
+    console.log('movies', this.state.movies)
+  }
+
   render() {
+
     return (
       <Fragment>
-        {this.state.movies.map(movie => (
-          <tr key={movie.id} >
-            <td>{movie.description}</td>
-            <td>{movie.video_url}</td>
-          </tr>
-        ))}
+        <table className="employee">
+          <thead>
+            <tr>
+              <th>TITLE</th>
+              <th>DESCRIPTION</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.movies.map(movie => (
+            <tr key={movie.id} >
+              <td>{movie.title}</td>
+              <td>{movie.description}</td>
+              <td>{movie.video_url}</td>
+            </tr>
+            ))}
+          </tbody>
+        </table>
+
       </Fragment>
     );
   }
@@ -31,6 +51,7 @@ class Movies extends React.Component {
 
 function MoviesHooks() {
   const [movies, setMovies] = useState([]);
+
   useEffect(() => {
     fetch("https://srapi.herokuapp.com/v1/movies")
       .then(response => {
@@ -40,12 +61,30 @@ function MoviesHooks() {
       .then(data => setMovies(data))
       .catch(error => console.error(error));
   }, []);
+
+
+  console.log('movie', movies)
+  
+
   return (
-    <div>
+    <table className="employee">
+    <thead>
+      <tr>
+        <th>TITLE</th>
+        <th>DESCRIPTION</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+    <tbody>
       {movies.map(movie => (
-        <div key={movie.id}>{movie.title}</div>
+        <tr key={movie.id} >
+          <td>{movie.title}</td>
+          <td>{movie.description}</td>
+          <td>{movie.video_url}</td>
+      </tr>
       ))}
-    </div>
+    </tbody>
+  </table>
   );
 }
 

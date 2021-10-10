@@ -23,6 +23,13 @@ function People() {
 
   console.log(peoples);
 
+  function removeTask(index) {
+    setPeoples(prevState => {
+      const peoples = [...prevState];
+      peoples.splice(index, 1);
+      return peoples;
+    });
+  }
 
   return (
     <Fragment>
@@ -49,7 +56,7 @@ function People() {
                   <td>{person.name.last}</td>
                   <td>{person.location.country}</td>
                   <td>
-                    <button onClick={() => this.removeItem(i) }>delete</button>
+                    <button onClick={() => removeTask(person.id.value)}>Delete Task</button>
                   </td>
                 </tr>
               ))}
